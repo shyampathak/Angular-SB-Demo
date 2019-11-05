@@ -1,0 +1,90 @@
+<app-header></app-header>
+<!-- <mat-card> -->
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="CRUD Operations">
+
+
+
+      <mat-card>
+          <mat-list>
+              <mat-list-item>
+                <mat-form-field class="full-width">
+                  <input matInput type="text" placeholder="To search a Student enter Name, Address or Class name." [(ngModel)]="SearchValue">
+                  <button mat-button *ngIf="SearchValue" matSuffix mat-icon-button aria-label="Clear" (click)="ClearAll()">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+      
+                <button mat-icon-button aria-label="Example icon-button with a heart icon"
+                  (click)="SearchStudent(SearchValue)">
+                  <mat-icon>search</mat-icon>
+                </button>
+              </mat-list-item>
+            </mat-list>
+        <table class="table_border">
+          <tr>
+            <th>Usre Img</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Study in class</th>
+            <th>Action </th>
+          </tr>
+          <ng-container *ngIf="data">
+            <tr *ngFor="let student of data">
+
+              <td>
+                <mat-icon mat-list-icon>account_box</mat-icon>
+              </td>
+              <td mat-line>{{student.id}}</td>
+              <td mat-line> {{student.name}} </td>
+              <td mat-line> {{student.address}} </td>
+              <td mat-line> {{student.studyin}} </td>
+              <td>
+                <button mat-icon-button (click)="showInfo(link)">
+                  <mat-icon>info</mat-icon>
+                </button>
+
+                <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon"
+                  (click)="deleteStudent(student.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon"
+                  (click)="editStudent(student.id)">
+                  <mat-icon>edit</mat-icon>
+                </button></td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="!data || data.length <= 0">
+
+            <td colspan="6">
+              <button class="full-width" mat-raised-button (click)="insertStudentData()">Populate
+                Student's data</button>
+            </td>
+
+          </ng-container>
+
+        </table>
+
+      </mat-card>
+
+
+      <mat-divider></mat-divider>
+    </mat-tab>
+
+    <!-- <mat-tab label="Log Search">
+      <mat-card>
+      <h4>Log Data</h4>
+      <div>
+        <input type="text" placeholder="Type here to search  in  logs">
+        <input type="button" value="Search" (click)="Search()">
+      </div>
+    </mat-card>
+    </mat-tab>
+   -->
+  </mat-tab-group>
+
+<!-- </mat-card> -->
+
+
+<!-- <app-add-student></app-add-student> -->

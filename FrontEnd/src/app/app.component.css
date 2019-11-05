@@ -1,0 +1,29 @@
+.df{
+    display: flex;
+}
+.table_border{
+    width: 98%;
+    border-top:solid 1px #ccc;
+    border-left:solid 1px #ccc;
+    padding: 0px;
+    margin: 20px auto 0;
+}
+.table_border th , .table_border td{
+    text-align: center;
+    border-bottom:solid 1px #ccc;
+    border-right:solid 1px #ccc;
+    padding: 5px  10px;
+}
+.mt-5{
+    margin-top: 5em;
+    width: 98%;
+    margin: auto;
+}
+.full-width{
+    width: 100%;
+    margin: 3em auto; 
+}
+body{
+    height: 100%;
+}
+
